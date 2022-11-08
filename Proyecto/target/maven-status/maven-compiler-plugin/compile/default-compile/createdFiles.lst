@@ -1,0 +1,8 @@
+dominio\Videojuego.class
+dominio\Usuario.class
+dominio\Persona.class
+datos\IAccesoDatos.class
+dominio\Categoria.class
+datos\Conexion.class
+com\proyecto\proyecto\ProyectoMain.class
+dominio\ReviewsComentarios.class
