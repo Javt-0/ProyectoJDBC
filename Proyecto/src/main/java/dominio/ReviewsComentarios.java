@@ -26,6 +26,13 @@ public class ReviewsComentarios implements Serializable {
         this.puntuacion = puntuacion;
         this.descripcion = descripcion;
     }
+
+    public ReviewsComentarios(int puntuacion, String descripcion) {
+        this.puntuacion = puntuacion;
+        this.descripcion = descripcion;
+    }
+    
+    
     
     //Get y Set
 

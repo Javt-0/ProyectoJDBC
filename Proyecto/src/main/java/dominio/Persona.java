@@ -2,7 +2,7 @@
 package dominio;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -22,6 +22,15 @@ public abstract class Persona implements Serializable{
         this.pais = pais;
         this.fechaNac = fechaNac;
     }
+
+    public Persona(String nombre, String apellidos, String pais, Date fechaNac) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.pais = pais;
+        this.fechaNac = fechaNac;
+    }
+    
+    
 
     public Persona(int idPersona) {
         this.idPersona = idPersona;
@@ -75,33 +84,10 @@ public abstract class Persona implements Serializable{
     
     //Hash and equals
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + this.idPersona;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Persona other = (Persona) obj;
-        return this.idPersona == other.idPersona;
-    }
+    
 
     @Override
     public String toString() {
-        return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellidos=" + apellidos + ", pais=" + pais + ", fechaNac=" + fechaNac + '}';
+        return "\nID Persona:" + idPersona + "\nNombre: " + nombre + " " + apellidos + "\nPais: " + pais + "\nFecha de nacimiento: " + fechaNac;
     }
-    
-    
-    
 }

@@ -1,8 +1,15 @@
-dominio\Videojuego.class
 dominio\Usuario.class
 dominio\Persona.class
-datos\IAccesoDatos.class
+datos\IAccesoDatosUsuario.class
+datos\VideojuegoDaoMySQL.class
+datos\UsuarioDaoMySQL.class
+datos\IAccesoDatosCategoria.class
+datos\ReviewsComentariosDaoMySQL.class
+dominio\Videojuego.class
+datos\CategoriaDaoMySQL.class
+datos\IAccesoDatosVideojuegos.class
 dominio\Categoria.class
 datos\Conexion.class
+datos\IAccesoDatosReviewsComentarios.class
 com\proyecto\proyecto\ProyectoMain.class
 dominio\ReviewsComentarios.class

@@ -2,6 +2,8 @@
 package datos;
 
 import dominio.Usuario;
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -9,12 +11,14 @@ import dominio.Usuario;
  */
 public interface IAccesoDatosUsuario {
     
-    public void CREATE(Usuario u);
+    public int CREATE(Usuario u);
     
-    public void READ();
+    public List<Usuario> READ() throws SQLException;
     
-    public void UPDATE();
+    public int UPDATE(Usuario u);
     
-    public void DELETE();
+    public int DELETE(Usuario u);
+    
+    public List<Usuario> SEARCH_PAIS(String nombreBusqueda) throws SQLException;
     
 }
