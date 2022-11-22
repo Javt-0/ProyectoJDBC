@@ -1,0 +1,6 @@
+1-JONTAHAN-AGUILAR TOALA-admin-ECUADOR-1-jonathan96aguilar@gmail.com-1996-09-11-1234-true
+2-IGNACIO-LORENTE PEREZ-nachoLoren-FRANCIA-2-igna90@gmail.com-1990-02-01-igna-true
+3-FERNANDO-BRAVO-ferBravo-PORTUGAL-3-fer@gmail.com-2001-10-21-123Gym-true
+5-JUAN-PEREZ-PerANtonio-NORUEGA-5-perez999@gmail.com-1999-12-30-juan-false
+7-ALONSO-RODRIGUEZ-alon32-ESPAÑA-7-alonso21@gmail.com-2003-11-15-alonso123-true
+8-FERNANDO-MARTINEZ-martinez777-ESPAÑA-8-martinez@gmail.com-1996-12-02-martinez123-true

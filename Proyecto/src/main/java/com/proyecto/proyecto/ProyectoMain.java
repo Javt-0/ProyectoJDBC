@@ -2,8 +2,10 @@
 package com.proyecto.proyecto;
 
 import datos.CategoriaDaoMySQL;
+import datos.IAccesoDatosUsuario;
 import datos.ReviewsComentariosDaoMySQL;
 import datos.UsuarioDaoMySQL;
+import datos.UsuarioDaoTxt;
 import datos.VideojuegoDaoMySQL;
 import dominio.Categoria;
 import dominio.ReviewsComentarios;
@@ -16,6 +18,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,14 +33,7 @@ public class ProyectoMain {
     static Scanner teclado = new Scanner(System.in);
     
     public static void main(String[] args){ 
-        String nom = "Fernando";
-        UsuarioDaoMySQL u1 = new UsuarioDaoMySQL();
-        Usuario u = new Usuario();
-        
-       
-        u.filtrarPais();
-        //menu();
-        
+        menu();
     }
     
     public static void menu() {
@@ -108,6 +104,7 @@ public class ProyectoMain {
             Categoria c = new Categoria();
             Usuario u = new Usuario();
             Videojuego v = new Videojuego();
+            IAccesoDatosUsuario uDaoTxt = new UsuarioDaoTxt();
             int opcion = -1;
             while(opcion != 0){
                 //System.out.flush();
@@ -125,11 +122,12 @@ public class ProyectoMain {
                 System.out.println("\t\t\t\t||         6. LISTAR VIDEOJUEGOS                       ||");
                 System.out.println("\t\t\t\t||         7. INGRESAR UNA NUEVA CATEGORIA             ||");
                 System.out.println("\t\t\t\t||         8. BUSCAR POR PAIS                          ||");
+                System.out.println("\t\t\t\t||         9. LISTAR USUARIOS(CLAVE SIN ENCRIPTAR)     ||");
                 System.out.println("\t\t\t\t||         0. VOLVER                                   ||");
                 System.out.println("\t\t\t\t========================================================");
                 System.out.println("Seleccionar una de las opciones del menú: ");
                 opcion = teclado.nextInt();
-                
+  
                 switch(opcion){
                     case 1:
                         u.listar();
@@ -157,6 +155,14 @@ public class ProyectoMain {
                         break;
                     case 7:
                         c.nuevaCategoria();
+                        enterContinuar();
+                        break;
+                    case 8:
+                        u.filtrarPais();
+                        enterContinuar();
+                        break;
+                    case 9:
+                        System.out.println(uDaoTxt.READ());
                         enterContinuar();
                         break;
                     case 0:

@@ -1,4 +1,5 @@
 dominio\Usuario.class
+datos\UsuarioDaoTxt.class
 dominio\Persona.class
 datos\IAccesoDatosUsuario.class
 datos\VideojuegoDaoMySQL.class

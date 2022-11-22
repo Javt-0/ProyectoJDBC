@@ -4,6 +4,7 @@ package dominio;
 
 import datos.IAccesoDatosUsuario;
 import datos.UsuarioDaoMySQL;
+import datos.UsuarioDaoTxt;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -264,8 +265,9 @@ public class Usuario extends Persona implements Serializable{
         return u; 
     }
     
+    
     public void mostrarDatos(Usuario uEntrada){
-        System.out.println("Nombre: " + uEntrada.getNombre() + " " + uEntrada.getApellidos());
+        System.out.println("\n\nNombre: " + uEntrada.getNombre() + " " + uEntrada.getApellidos());
         System.out.println("Pais: " + uEntrada.getPais());
         System.out.println("Fecha de nacimiento: " + uEntrada.getFechaNac());
         System.out.println("Edad: " + calcularEdad(uEntrada.getFechaNac()).getYears() + " años");
@@ -298,11 +300,15 @@ public class Usuario extends Persona implements Serializable{
     
     public void cambioClaveUsuario(Usuario uEntrada){
         IAccesoDatosUsuario uDAO = new UsuarioDaoMySQL();
+        IAccesoDatosUsuario uDaoTxt = new UsuarioDaoTxt();
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        
         
         System.out.println("Ingresa la nueva contraseña: ");
         String claveEntrada = teclado.nextLine();
         
         try {
+            usuarios.addAll(uDAO.READ());
             //Aqui añadir el metodo que guarda la contraseña sin encriptar en un txt
             
             //
@@ -319,6 +325,11 @@ public class Usuario extends Persona implements Serializable{
         
         System.out.println("Ingresa el Pais: ");
         String paisEntrada = teclado.nextLine();
+        
+        
+        
+        
+        
         
         uEntrada.setPais(paisEntrada);
         uDAO.UPDATE(uEntrada);
@@ -360,6 +371,7 @@ public class Usuario extends Persona implements Serializable{
     
     public void registrarUsuario(){
         IAccesoDatosUsuario uDAO = new UsuarioDaoMySQL();
+        IAccesoDatosUsuario uDaoTxt = new UsuarioDaoTxt();
         ArrayList<Usuario> usuarios = new ArrayList<>();
         
         //Estas dos variables me sirven para gusrdar los id por si hay algun usurio que solo se dio de baja y quiera volver
@@ -472,7 +484,11 @@ public class Usuario extends Persona implements Serializable{
             }else{
                 try {
                     //metodo que ingresa en un txt el usurio nuevo antes de encriptar la contraseña
+                    Usuario uTxt = uNuevo;
                     
+                    uTxt.setIdPersona(usuarios.get(usuarios.size()-1).getIdPersona() + 1);
+                    uTxt.setIdUsuario(usuarios.get(usuarios.size()-1).getIdUsuario()+ 1);
+                    uDaoTxt.CREATE(uTxt);
                     uNuevo.setClave(encriptadoMD5(uNuevo.getClave()));
                     uDAO.CREATE(uNuevo);
                 } catch (Exception ex) {
